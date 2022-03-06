@@ -28,16 +28,10 @@ export const Card = styled.div`
         height: auto;
         padding: 1rem;
     }
-
-    > p {
-        color: var(--text);
-        padding: .5rem;
-        width: 100%;
-        font-size: 1.8rem;
-    }
 `;
 
 export const Button = styled.button`
+    cursor: pointer;
     padding: 1rem;
     background: var(--btn);
     color: #fff;
@@ -55,4 +49,12 @@ export const Button = styled.button`
         height: 2rem;
         fill: #fff;
     }
+`;
+
+export const Title = styled.p`
+    color: var(--text);
+    padding: .5rem;
+    width: 100%;
+    font-size: 1.8rem;
+
 `;
