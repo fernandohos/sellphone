@@ -5,7 +5,9 @@ type ShoppingCartProviderProps = {
     children: ReactNode;
 }
 
-interface ItemToAdd extends Stripe.Price {}
+interface ItemToAdd extends Stripe.Price {
+    product: Stripe.Product;
+}
 
 interface CartItem extends ItemToAdd {
     quantity: number;
