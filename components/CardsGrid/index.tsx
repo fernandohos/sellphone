@@ -1,19 +1,14 @@
 import React from 'react';
 import * as C from './styles';
 import { Card } from '@components/Card';
+import Stripe from 'stripe';
 
-type Product = {
-    id: string;
-    unit_amount: number;
-    product: {
-        description: string;
-        name: string;
-        images: string[];
-    }
-}
+interface IPrice extends Stripe.Price {
+    product: Stripe.Product;
+};
 
 type CardsGridProps = {
-    items: Product[];
+    items: IPrice[];
 }
 
 export function CardsGrid({ items }: CardsGridProps) {

@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Header } from '@components/Header';
 import { CardsGrid } from '@components/CardsGrid';
 import { GetServerSideProps } from 'next';
 import Stripe from 'stripe';
 
+interface IPrice extends Stripe.Price {
+  product: Stripe.Product;
+};
+
 type HomeProps = {
-  items: any;
+  items: IPrice[];
 }
 
 const Home = ({ items }: HomeProps) => {

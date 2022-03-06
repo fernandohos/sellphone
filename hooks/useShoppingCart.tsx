@@ -1,15 +1,11 @@
 import React, { useState, createContext, useContext, ReactNode } from 'react';
+import Stripe from 'stripe';
 
 type ShoppingCartProviderProps = {
     children: ReactNode;
 }
 
-type ItemToAdd = {
-    id: string;
-    unit_amount: number;
-    name: string;
-    images: string[];
-}
+interface ItemToAdd extends Stripe.Price {}
 
 interface CartItem extends ItemToAdd {
     quantity: number;
@@ -25,10 +21,6 @@ const shoppingCartContext = createContext({} as ShoppingCartContext);
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
-    React.useEffect(() => {
-        console.log("[CART ITEMS]", cartItems);
-    }, [cartItems]);
 
     function addItemToCart(itemToAdd: ItemToAdd) {
         if (cartItems.some(cartItem => cartItem.id === itemToAdd.id)) {
