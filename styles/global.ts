@@ -15,12 +15,16 @@ export const GlobalStyle = createGlobalStyle`
         --icon: #90f;
         --primary: #0850ff;
         --btn: #ec275f;
+        --card: #f8f8f8;
+        --text: #444;
         font-size: 62.5%;
     }
     
     @media (prefers-color-scheme: dark) {
         html {
+            --text: #eee;
             --bg: #021032;
+            --card: #1d2b4d;
             --second-bg: #00092B;
         }
     }
