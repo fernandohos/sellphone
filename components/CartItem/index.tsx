@@ -2,6 +2,7 @@ import React from 'react';
 import * as C from './styles';
 import Stripe from 'stripe';
 import Image from 'next/image';
+import { useShoppingCart } from '@hooks/useShoppingCart';
 
 interface IPrice extends Stripe.Price {
     product: Stripe.Product;
@@ -13,6 +14,16 @@ type CartItemProps = {
 }
 
 export function CartItem({ item }: CartItemProps) {
+    const {addItemToCart, removeItemFromCart} = useShoppingCart();
+
+    function addToCart() {
+        addItemToCart(item);
+    }
+
+    function removeFromCart() {
+        removeItemFromCart(item.id);
+    }
+
     return (
         <C.CartItem>
             <div className="image-container">
@@ -28,9 +39,9 @@ export function CartItem({ item }: CartItemProps) {
                 </p>
             </div>
             <div className="quantity">
-                <div>-</div>
+                <div onClick={removeFromCart}>-</div>
                 <p>{item.quantity}</p>
-                <div>+</div>
+                <div onClick={addToCart}>+</div>
             </div>
         </C.CartItem>
     )
