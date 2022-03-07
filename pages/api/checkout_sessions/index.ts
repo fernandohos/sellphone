@@ -5,10 +5,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
     apiVersion: "2020-08-27"
 });
 
-const handler: NextApiHandler = (req, res) => {
+const handler: NextApiHandler = async (req, res) => {
     if (req.method === 'POST') {
         try {
-            const session = stripe.checkout.sessions.create({
+            const session = await stripe.checkout.sessions.create({
                 mode: "payment",
                 cancel_url: req.headers.origin + "/cart",
                 success_url: req.headers.origin + "/success?session_id={CHECKOUT_SESSION_ID}",
