@@ -42,8 +42,7 @@ const handler: NextApiHandler = async (req, res) => {
             console.warn(`🤷‍♀️ Unhadled event type ${event.type}`);
         }
 
-
-
+        res.json({ received: true });
     }
     else {
         res.setHeader("Allow", "POST");
