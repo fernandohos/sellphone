@@ -16,7 +16,9 @@ const handler: NextApiHandler = async (req, res) => {
         if (!id.startsWith('cs_')) {
             throw Error("Incorrect Checkout Session ID");
         }
-        const checkout_session = await stripe.checkout.sessions.retrieve(id);
+        const checkout_session = await stripe.checkout.sessions.retrieve(id, {
+            expand: ["customer"]
+        });
         res.status(200).json(checkout_session);
     }
     catch ({ message }) {
