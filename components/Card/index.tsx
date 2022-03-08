@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useShoppingCart } from '@hooks/useShoppingCart';
 import Stripe from 'stripe';
+import toast from 'react-hot-toast';
 
 interface IPrice extends Stripe.Price {
     product: Stripe.Product;
@@ -17,6 +18,8 @@ export function Card({ item }: CardProps) {
     const { addItemToCart } = useShoppingCart();
 
     function addToCart() {
+        const productNameArray = item.product.name.split(" ")
+        toast.success(`${productNameArray[0]} ${productNameArray[1]} added to bag`);
         addItemToCart(item);
     }
 

@@ -3,6 +3,7 @@ import { Header } from '@components/Header';
 import { CardsGrid } from '@components/CardsGrid';
 import { GetServerSideProps } from 'next';
 import Stripe from 'stripe';
+import { Toaster } from 'react-hot-toast';
 
 interface IPrice extends Stripe.Price {
   product: Stripe.Product;
@@ -15,6 +16,7 @@ type HomeProps = {
 const Home = ({ items }: HomeProps) => {
   return (
     <div>
+      <Toaster />
       <Header />
       <CardsGrid items={items} />
     </div>
