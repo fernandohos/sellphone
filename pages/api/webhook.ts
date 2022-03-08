@@ -12,12 +12,12 @@ export const config = {
     }
 }
 
-const handler: NextApiHandler = (req, res) => {
+const handler: NextApiHandler = async (req, res) => {
     if (req.method === 'POST') {
         let event;
 
         try {
-            const rawBody = buffer(req);
+            const rawBody = await buffer(req);
             const signature = req.headers['stripe-signature'] ?? '';
 
             event = stripe.webhooks.constructEvent(
@@ -31,19 +31,19 @@ const handler: NextApiHandler = (req, res) => {
             res.status(400).send(`Webhook error: ${message}`);
             return;
         }
-        
+
         console.log(`✔ Success: ${event.id}`);
 
-        if(event.type === 'checkout.session.completed') {
+        if (event.type === 'checkout.session.completed') {
             console.log(`💰 Payment received!`);
             // business logic goes here
         }
         else {
             console.warn(`🤷‍♀️ Unhadled event type ${event.type}`);
         }
-        
-        
-        
+
+
+
     }
     else {
         res.setHeader("Allow", "POST");
