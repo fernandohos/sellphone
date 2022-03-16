@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const CartItem = styled.div`
-    border: 1px solid var(--primary);
+    /* border: 1px solid var(--primary); */
+    background: var(--card);
     padding: 1rem;
     margin-bottom: 2rem;
     display: flex;

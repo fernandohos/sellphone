@@ -6,8 +6,12 @@ export const Card = styled.div`
     border-radius: .3rem;
     display: flex; 
     flex-direction: column;
-    border: 1px solid var(--primary);
+    /* border: 1px solid var(--primary); */
     text-decoration: none;
+    background: var(--card);
+    box-shadow: 0 4px 4px #2225;
+    padding: .6rem;
+    padding-bottom: 0;
 
     .flex {
         display: flex;
