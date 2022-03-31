@@ -21,8 +21,8 @@
 ***
 
 <div>
-  <img src="https://github.com/fernandohos/sellphone/blob/main/.github/desktop.png?raw=true" alt="sellphone desktop screenshot" width="70%" />
-  <img src="https://github.com/fernandohos/sellphone/blob/main/.github/mobile.png" alt="sellphone mobile screenshot" width="20%" />
+  <img src="https://github.com/fernandohos/sellphone/blob/main/.github/desktop.png?raw=true" alt="sellphone desktop screenshot" width="80%" />
+  <img src="https://github.com/fernandohos/sellphone/blob/main/.github/mobile.png" alt="sellphone mobile screenshot" width="19%" />
 </div>
 
 <br>
